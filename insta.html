@@ -1,0 +1,86 @@
+<HTML>
+	<head>
+	<link rel="stylesheet" type="text/css" href="main.css" />
+	<link rel="stylesheet" type="text/css" href="lightbox.css" />
+	
+	</head>
+<BODY>
+	<div id="banner">
+	<h1><i>#</i>musicexperiment<i></i></h1>
+	</div>
+<script type="text/javascript" charset="utf-8" src="jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="JSON2.js"></script>
+<script type="text/javascript" charset="utf-8" src="load.js"></script>
+<script type="text/javascript" charset="utf-8" src="lightbox.js"></script>
+
+
+
+
+<script type="text/javascript" charset="utf-8" charset="utf-8">
+var c;
+var nothing;
+var total = 0;
+var rotate = 0;
+// BELOW LOAD FIRST SET
+
+// LOAD REST OF SET AT 10 Seconds each
+	var auto_refresh = setInterval(
+	function ()
+	{
+  $('#pics').load(load_first());
+  },10000);
+  
+
+	
+//setTimeout(
+//  function() 
+//  {
+//$('#pics').load(load_guess());  }, 15000);
+
+
+
+setInterval(function(){
+start_rotate();
+;},100000);
+
+function start_rotate(){
+console.log("start rotation");
+c = total;
+nothing = setInterval(clicks, 7000);
+}
+function clicks(){
+console.log("start rotation");
+			$('#' + c + '').click();
+			c--;
+			rotate++;
+			
+			console.log(c);
+// Click 5 photos then click close
+	if (rotate > 10){
+			console.log("closing window");
+			$('.lb-close').click();
+			clearInterval(nothing);
+			c = total;
+			rotate = 0;
+	}
+}
+
+
+
+
+					
+					
+
+</script>
+
+<div class="pics">
+
+</div>
+</BODY>
+</HTML>
+
+
+
+
+
+
